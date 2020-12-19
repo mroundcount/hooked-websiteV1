@@ -1,0 +1,114 @@
+<html>
+
+<head>
+  <title>Hooked Uploader</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+  <!-- Creating a page header -->
+  <!--
+  <div class="topnav" style="padding-left:16px">
+    <button onclick="logout()">Logout</button>
+  </div>
+  -->
+    
+
+
+  <!-- I think these are the div tags when a user is NOT logged in -->
+  <div id="login_div" class="main-div">
+    <h3>Welcome to Hooked Song Uploader</h3>
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+
+    <button onclick="login()">Login to Account</button>
+
+    <p><i>This site only allows users with existing Hooked accounts to upload their music. At this time, if you do not have a Hooked account download the app to create one. Updates coming soon. </i></p>
+
+  </div>
+  <!-- End of the div tags when a user is NOT logged in -->
+
+
+  <!-- I think these are the div tags when a user is logged in -->
+  <div id="user_div" class="loggedin-div">
+    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+    <button onclick="logout()">Logout</button>
+    <br><br>
+
+    <label id="fileLbl">Select a file to upload</label>
+    <!-- Selecting a file to upload --> 
+    <button onclick="selectFile()">Select File</button> <br>
+
+
+    <label>Choose a title for your song:</label><br>
+    <input id="title_field" type="text" placeholder="Title"><br><br>
+
+    <label>Choose a genre for your song:</label><br>
+    <label for="genre_field"></label>
+    <select id="genre_field">
+      <option value="Alternative Rock">Alternative Rock</option>
+      <option value="Classical">Classical</option>
+      <option value="Country">Country</option>
+      <option value="Dance & EDM">Dance & EDM</option>
+      <option value="Disco">Disco</option>
+      <option value="Folk">Folk</option>
+      <option value="Hip-hop & Rap">Hip-hop & Rap</option>
+      <option value="Indie">Indie</option>
+      <option value="Jazz & Blues">Jazz & Blues</option>
+      <option value="Latin">Latin</option>
+      <option value="Metal">Metal</option>
+      <option value="Piano">Piano</option>
+      <option value="Pop">Pop</option>
+      <option value="R&B & Soul">R&B & Soul</option>
+      <option value="Reggae">Reggae</option>
+      <option value="Reggaeton">Reggaeton</option>
+      <option value="Rock">Rock</option>
+      <option value="World">World</option>
+    </select><br><br>
+
+
+    <p><i>In the section you will select a start and stop time for the "hook" of your song. It must be between 5 and 15 seconds in length. When a user likes your song they can listen to the full song. </i></p>
+    <label>Enter a starting time for your song clip:</label><br>
+    <div>
+      <input id="start_min_field" type="text" placeholder="min">
+      <input id="start_sec_field" type="text" placeholder="sec">
+    </div> <br>
+
+    <label>Enter a stopping time for your song clip:</label><br>
+    <div>
+      <input id="stop_min_field" type="text" placeholder="min">
+      <input id="stop_sec_field" type="text" placeholder="sec">
+    </div> <br>
+
+    <!-- Clicking this button will write to the audioFiles node on firebase --> 
+    <button onclick="uploadAudioFile()">Upload File</button>
+    <!-- <button onclick="check()">Test Time</button> -->
+  </div>
+  <!-- End of the div tags when a user is logged in -->
+  <!-- End of original site -->
+
+
+  <!-- My firebase configuraton..... no not modify -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-storage.js"></script> 
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCdU-L_VwxUnyiFv50wLvNY5MZtTnzVDXk",
+      authDomain: "hooked-217d3.firebaseapp.com",
+      databaseURL: "https://hooked-217d3.firebaseio.com",
+      projectId: "hooked-217d3",
+      storageBucket: "hooked-217d3.appspot.com",
+      messagingSenderId: "532822472904",
+      appId: "1:532822472904:web:8ef06019c6cce8ea4c4dfd",
+      measurementId: "G-LNRKQG8YF4"
+      };
+    firebase.initializeApp(config);
+  </script>
+  <script src="index.js"></script>
+
+</body>
+</html>
